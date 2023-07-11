@@ -1,23 +1,24 @@
 <body>
-  <div class=" m-3 row">
-    <div class="col-sm-12 col-lg-3 text-center list-side">
-      <div class="row">
-        <app-profile-banner></app-profile-banner>
+  <div class="container">
+    <div class="chat-list">
+      <div class="search-bar">
+        <mat-form-field>
+          <input matInput placeholder="Search for users..." [formControl]="searchControl">
+        </mat-form-field>
       </div>
-      <div class="row">
-        <app-chat-list></app-chat-list>
+      <mat-divider></mat-divider>
+      <div>
+        <mat-selection-list>
+          <mat-list-option class="chat">
+            <img class="avatar" src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="userAvatar">
+            <h3>UserName 1</h3>
+            <p>lorem ipsum dolor</p>
+          </mat-list-option>
+        </mat-selection-list>
       </div>
     </div>
-    <div class="col-sm-12 col-lg-9 text-center chat-side">
-      <div class="row">
-        <app-chat-banner></app-chat-banner>
-      </div>
-      <div class="row">
-        <app-chat-main></app-chat-main>
-      </div>
-      <div class="row">
-        <app-writer></app-writer>
-      </div>
+    <div class="messages">
+      <mat-divider></mat-divider>
     </div>
   </div>
 </body>
