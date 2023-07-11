@@ -10,5 +10,5 @@ import { FormControl } from '@angular/forms';
 export class AppComponent {
   title = 'messenger-app';
 
-  searchControl = new FormControl();
+
 }
