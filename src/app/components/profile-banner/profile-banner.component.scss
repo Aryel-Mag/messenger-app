@@ -1,0 +1,28 @@
+body{
+  background-color: lightblue;
+}
+
+.profile-container {
+  margin: 0px;
+  display:flex;
+  place-items: center;
+  background-color: lightblue;
+  height: 70px;
+}
+
+.user-profile {
+  display: flex;
+  height: 70px;
+  flex-direction: column;
+}
+
+img {
+  width: 50px;
+  margin: 5px;
+border-radius: 25px;
+}
+
+span {
+  margin: 5px;
+  width: 100%;
+}
