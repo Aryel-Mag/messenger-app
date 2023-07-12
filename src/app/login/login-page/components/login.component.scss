@@ -10,6 +10,13 @@ body{
   justify-content: center;
   background-color: lightpink;
   width: 40vh;
-  height: 30vh;
+  height: 35vh;
   border-radius: 10px;
+}
+
+.go-btn{
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  margin: 10px
 }

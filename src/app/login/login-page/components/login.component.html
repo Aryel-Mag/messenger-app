@@ -3,8 +3,11 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Enter your username</mat-label>
-      <input matInput placeholder="anything you'd like" value="">
+      <input matInput placeholder="anything you'd like" value="" [formControl]="usernameControl">
     </mat-form-field>
+    <div class="go-btn">
+    <button mat-stroked-button>G O !</button>
+    </div>
   </form>
   </div>
 </body>
