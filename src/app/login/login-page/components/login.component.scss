@@ -1,0 +1,15 @@
+body{
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  background-color: lightpink;
+  width: 40vh;
+  height: 30vh;
+  border-radius: 10px;
+}

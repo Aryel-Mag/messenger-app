@@ -3,45 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfileBannerComponent } from './profile-banner/profile-banner.component';
-import { ChatBannerComponent } from './chat-banner/chat-banner.component';
-import { ChatMainComponent } from './chat-main/chat-main.component';
-import { ChatListComponent } from './chat-list/chat-list.component';
-import { WriterComponent } from './writer/writer.component';
-import { RoomComponent } from './room/room.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ReactiveFormsModule } from '@angular/forms';
-
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatAutocompleteModule } from '@angular/material/autocomplete'
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
+import {LoginModule} from "./login/login.module";
+import {HomepageModule} from "./homepage/homepage.module";
+import {NotFoundModule} from "./not-found/not-found.module";
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProfileBannerComponent,
-    ChatBannerComponent,
-    ChatMainComponent,
-    ChatListComponent,
-    WriterComponent,
-    RoomComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatDividerModule,
-    MatListModule,
+    LoginModule,
+    HomepageModule,
+    NotFoundModule
   ],
   providers: [],
   bootstrap: [AppComponent]
