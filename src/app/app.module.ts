@@ -9,6 +9,7 @@ import {LoginModule} from "./login/login.module";
 import {HomepageModule} from "./homepage/homepage.module";
 import {NotFoundModule} from "./not-found/not-found.module";
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {NotFoundModule} from "./not-found/not-found.module";
     BrowserAnimationsModule,
     LoginModule,
     HomepageModule,
-    NotFoundModule
+    NotFoundModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
   ],
   providers: [],
   bootstrap: [AppComponent]

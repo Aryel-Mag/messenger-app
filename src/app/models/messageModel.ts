@@ -1,44 +1,54 @@
 export default class Message {
-  private _id: number = 0;
-  private _message: string = '';
-  private _timestamp: number = 0;
-  private _sender: string = '';
-
-  // getters and setters for id, message, timestamp, and sender
-  set id(value: number) {
-    this.id = value;
+  get id(): string {
+    return this._id;
   }
 
-  get accessId(): number {
-    return this.id;
+  set id(value: string) {
+    this._id = value;
+  }
+
+  get roomId(): string {
+    return this._roomId;
+  }
+
+  set roomId(value: string) {
+    this._roomId = value;
+  }
+
+  get message(): string {
+    return this._message;
   }
 
   set message(value: string) {
-    this.message = value;
+    this._message = value;
   }
 
-  get accessMessage(): string {
-    return this.message;
+  get timestamp(): number {
+    return this._timestamp;
   }
 
   set timestamp(value: number) {
-    this.timestamp = value;
+    this._timestamp = value;
   }
 
-  get accessTimestamp(): number {
-    return this.timestamp;
+  get sender(): string {
+    return this._sender;
   }
 
   set sender(value: string) {
-    this.sender = value;
+    this._sender = value;
   }
+  private _id: string;
+  private _roomId: string;
+  private _message: string;
+  private _timestamp: number;
+  private _sender: string;
 
-  get accessSender(): string {
-    return this.sender;
-  }
+  // getters and setters for id, message, timestamp, and senders
 
-  constructor(id: number, message: string, timestamp: number, sender: string) {
+  constructor(id: string, roomId:string, message: string, timestamp: number, sender: string) {
     this._id = id;
+    this._roomId = roomId
     this._message = message;
     this._timestamp = timestamp;
     this._sender = sender;
