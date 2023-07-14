@@ -12,6 +12,7 @@ import {MessageActions} from "../../../../store/messages/messages.actions";
 })
 
 export class WriterComponent {
+  ROOM_ID = '64ae8f8a815a71f5772d0d41';
   constructor(private readonly _store: Store) { }
 
   messageToSend: FormControl<string | null> = new FormControl('');
@@ -19,7 +20,7 @@ export class WriterComponent {
 
   public sendMessage(): void {
     if (this.messageToSend.value !== null) {
-      this.msg.roomId = '1';
+      this.msg.roomId = this.ROOM_ID;
       this.msg.message = this.messageToSend.value;
       this.msg.sender = 'Ariel Magnetic';
       this._store.dispatch(MessageActions.addMessage({ message: this.msg }));
