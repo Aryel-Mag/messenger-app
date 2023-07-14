@@ -24,6 +24,7 @@ export class WriterComponent {
       this.msg.message = this.messageToSend.value;
       this.msg.sender = 'Ariel Magnetic';
       this._store.dispatch(MessageActions.addMessage({ message: this.msg }));
+      this.messageToSend.setValue('')
     }
   }
 }
