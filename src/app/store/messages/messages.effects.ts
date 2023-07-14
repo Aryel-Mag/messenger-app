@@ -31,7 +31,7 @@ export class MessageEffects {
           map((message) => MessageActions.addMessageSuccess({  message, pStatus: payloadStatus.success })),
           catchError(
             () => of(MessageActions.addMessageError({
-              pStatus: payloadStatus.error, error: 'An error occurred while loading the beer list'
+              pStatus: payloadStatus.error, error: 'An error occurred while adding the messages '
             }))))
       })
     )

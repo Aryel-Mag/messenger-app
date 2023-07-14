@@ -3,7 +3,7 @@ import Message from "../models/messageModel";
 
 export interface AppState {
   users?: User[];
-  loggedUser?: User;
+  user?: User;
   message?: Message;
 }
 

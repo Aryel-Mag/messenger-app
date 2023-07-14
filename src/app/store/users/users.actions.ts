@@ -11,15 +11,9 @@ export const UsersActions= createActionGroup({
     getUsersSuccess: props<{ users: User[]; pStatus: payloadStatus }>(),
     getUsersError: props<{ pStatus: payloadStatus; error: string }>(),
 
-    createUser: props<{ user: User }>(),
-    addBeerSuccess: props<{ user: User; pStatus: payloadStatus }>(),
-    addBeerError: props<{ pStatus: payloadStatus; error: string }>(),
+    addUser: props<{ user: User }>(),
+    addUserSuccess: props<{ user: User; pStatus: payloadStatus }>(),
+    addUserError: props<{ pStatus: payloadStatus; error: string }>(),
 
-    addMessage: props<{ message: Message }>(),
-    addMessageSuccess: props<{ message: User; pStatus: payloadStatus }>(),
-    addMessageError: props<{ pStatus: payloadStatus; error: string }>(),
-/*
-    removeBeer: props<{ beerId: number }>(),
-*/
   },
 });
