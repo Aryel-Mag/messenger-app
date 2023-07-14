@@ -7,6 +7,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -14,13 +15,15 @@ import {MatButtonModule} from "@angular/material/button";
     LoginPageComponent,
     LoginComponent
   ],
-  imports: [
-    CommonModule,
-    LoginRoutingModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        LoginRoutingModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatIconModule
+    ]
 })
 export class LoginModule { }

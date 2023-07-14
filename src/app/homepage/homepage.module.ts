@@ -9,7 +9,7 @@ import {ChatMainComponent} from "./homepage/components/chat-main/chat-main.compo
 import {ChatListComponent} from "./homepage/components/chat-list/chat-list.component";
 import {ChatBannerComponent} from "./homepage/components/chat-banner/chat-banner.component";
 import {ProfileBannerComponent} from "./homepage/components/profile-banner/profile-banner.component";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -17,6 +17,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatListModule} from "@angular/material/list";
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from "@angular/material/icon";
+
+
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -37,6 +41,8 @@ import {MatListModule} from "@angular/material/list";
     MatAutocompleteModule,
     MatDividerModule,
     MatListModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class HomepageModule { }

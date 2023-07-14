@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,11 @@ import {LoginModule} from "./login/login.module";
 import {HomepageModule} from "./homepage/homepage.module";
 import {NotFoundModule} from "./not-found/not-found.module";
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { messagesReducers } from "./store/messages/messages.reducers";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
+import {MessageEffects} from "./store/messages/messages.effects";
 
 @NgModule({
   declarations: [
@@ -20,7 +26,11 @@ import {NotFoundModule} from "./not-found/not-found.module";
     BrowserAnimationsModule,
     LoginModule,
     HomepageModule,
-    NotFoundModule
+    NotFoundModule,
+    HttpClientModule,
+    StoreModule.forRoot({ message: messagesReducers }),
+    EffectsModule.forRoot([MessageEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25 }),
   ],
   providers: [],
   bootstrap: [AppComponent]
