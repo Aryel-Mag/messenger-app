@@ -5,7 +5,7 @@ import { map, tap } from 'rxjs/operators';
 import Message from "../models/messageModel";
 
 
-const URL_MESSAGES = "http://localhost:3001";
+const URL_MESSAGES = "http://localhost:3001/";
 
 @Injectable({
   providedIn: 'root'
@@ -34,12 +34,12 @@ class HttpService {
 
       // CREATES JSON FILE WITH BEER INTERFACE
       let json = {
-        message: message.accessMessage,
-        roomId: message.accessRoomId,
-        sender: message.accessSender
+        message: message.message,
+        roomId: message.roomId,
+        sender: message.sender
       };
 
-      const msg$: Observable<Message> = this._http.post(URL_MESSAGES, json).pipe(
+      const msg$: Observable<Message> = this._http.post(URL_MESSAGES + 'messages/', json).pipe(
         map((beerObj: Object) => beerObj as Message)
       );
       return msg$;

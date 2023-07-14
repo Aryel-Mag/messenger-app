@@ -1,9 +1,10 @@
 import User from "../models/userModel";
+import Message from "../models/messageModel";
 
 export interface AppState {
   users?: User[];
   loggedUser?: User;
-
+  message?: Message;
 }
 
 export enum payloadStatus {

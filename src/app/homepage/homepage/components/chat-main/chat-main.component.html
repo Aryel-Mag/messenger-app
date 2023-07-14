@@ -1,3 +1,7 @@
 <body>
-  MESSAGES GO HERE.....
+  <div *ngIf="allMessages$ | async as messages" class="container">
+    <div *ngFor="let message of messages" class="col-sm-12 col-lg-4">
+      {{message}}
+    </div>
+  </div>
 </body>

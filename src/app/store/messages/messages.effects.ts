@@ -8,7 +8,7 @@ import { of } from 'rxjs';
 
 
 @Injectable()
-export class BeersEffects {
+export class MessageEffects {
   /*loadBeers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BeersAction.getBeers),

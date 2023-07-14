@@ -9,15 +9,18 @@ export const initialState: IPayloadStatus = {
   error: '',
 }
 
-export const beersReducer = createReducer(
+export const messagesReducers = createReducer(
   initialState,
 
   on(MessageActions.addMessage, (state, { }) => ({ ...state, pStatus: payloadStatus.loading })),
 
-  on(MessageActions.addMessageSuccess, (state, { message, pStatus }) => ({ ...state, pStatus: pStatus, data: message })),
+  on(MessageActions.addMessageSuccess, (state, { message, pStatus }) => {
+    const data = [...state.data, message];
+    return { ...state, pStatus: pStatus, data };
+  }),
 
   on(MessageActions.addMessageError, (state, { error, pStatus }) =>
-    ({ ...state, error: 'an error occurred while adding the beer', pStatus: pStatus })
+    ({ ...state, error: 'an error occurred while sending the message', pStatus: pStatus })
   )
 
 );
