@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Observable} from "rxjs";
+import {filter, Observable, skipUntil, takeUntil} from "rxjs";
 import User from "../../models/userModel";
 import {Store} from "@ngrx/store";
 import {selectUser} from "../../store/users/users.selectors";
@@ -19,10 +19,20 @@ export class HomepageComponent {
 
   ngOnInit() {
 
-    this.user$ = this._store.select(selectUser)
+    this.user$ = this._store.select(selectUser);
+
+
     this.user$.subscribe(
-      user => {console.log(user.username); if(user.username === undefined) this.router.navigate(['/home'])},
+      user => {console.log(user.username);
+        if(user.username === undefined) this.router.navigate(['/home']
+      )},
     )
+
+   /* this.user$.pipe(
+      filter(user => user.username === undefined)
+    ).subscribe(() => {
+      this.router.navigate(['/home']);
+    });*/
   }
 
   onDestroy() {
