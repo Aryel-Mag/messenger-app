@@ -14,8 +14,8 @@ import {tap} from "rxjs/operators";
 })
 export class ProfileBannerComponent {
   public user$!: Observable<User>;
-  private sub: Subscription;
-  private username: string;
+  private sub!: Subscription;
+  private username!: string;
 
   constructor(
     private readonly _store: Store

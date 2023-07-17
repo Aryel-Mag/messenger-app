@@ -17,20 +17,6 @@ class HttpService {
 
   constructor(private readonly _http: HttpClient) { }
 
-  // get all beers from API
-  /*public getBeersAPI(): Observable<IBeer[]> {
-    try {
-      const list: Observable<IBeer[]> = this._http.get(URL_MESSAGES).pipe(
-        map((beerObj: Object) => beerObj as IBeerRaw),
-        map((beerList: IBeerRaw) => beerList.data as IBeer[])
-      )
-      return list
-    } catch (error) {
-      console.error(error);
-      throw (error)
-    }
-  }*/
-
   public postMessage(message: Message): Observable<Message> {
     try {
 

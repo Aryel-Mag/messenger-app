@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 })
 export class HomepageComponent {
   public user$!: Observable<User>;
-  private sub:Subscription;
+  private sub!:Subscription;
   constructor(
     private readonly _store: Store, private readonly router : Router
   ) { }
@@ -25,7 +25,11 @@ export class HomepageComponent {
 
     this.sub = this.user$.subscribe(
       user => {
-        if(user.username === undefined) this.router.navigate(['/home']).then();},
+        if (user.username === undefined) {
+          alert('You must be logged in to access this page')
+          this.router.navigate(['/home']).then();
+        }
+      },
     )
 
    /* this.user$.pipe(
