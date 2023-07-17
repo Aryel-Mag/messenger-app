@@ -31,12 +31,6 @@ export class HomepageComponent {
         }
       },
     )
-
-   /* this.user$.pipe(
-      filter(user => user.username === undefined)
-    ).subscribe(() => {
-      this.router.navigate(['/home']);
-    });*/
   }
 
   onDestroy() {

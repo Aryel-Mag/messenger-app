@@ -11,20 +11,6 @@ import {Router} from "@angular/router";
 
 @Injectable()
 export class UsersEffects {
-  /*loadBeers$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(BeersAction.getBeers),
-      exhaustMap(() => {
-        return this._httpService.getBeersAPI().pipe(
-          map((beersList) => BeersAction.getBeersSuccess({ beers: beersList, pStatus: payloadStatus.success })),
-          catchError(
-            () => of(BeersAction.getBeersError({
-              pStatus: payloadStatus.error, error: 'An error occurred while loading the beer list'
-            }))))
-      })
-    )
-  );*/
-
   //CONNECTS TO THE DATABASE AND LAUNCHES AN ACTION ACCORDING TO THE RESPONSE
   addUser = createEffect(() =>
     this.actions$.pipe(

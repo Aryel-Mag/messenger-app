@@ -13,8 +13,5 @@ export const MessageActions= createActionGroup({
     addMessage: props<{ message: Message }>(),
     addMessageSuccess: props<{ message: Message; pStatus: payloadStatus }>(),
     addMessageError: props<{ pStatus: payloadStatus; error: string }>(),
-    /*
-        removeBeer: props<{ beerId: number }>(),
-    */
   },
 });

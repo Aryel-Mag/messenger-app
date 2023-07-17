@@ -25,7 +25,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent {
   public user$!: Observable<User>;
-  private sub!: Subscription;
   constructor(private readonly _store: Store, private router: Router) { }
 
   usernameControl: FormControl<string|null> = new FormControl('');
@@ -40,15 +39,7 @@ export class LoginComponent {
 
       // SELECTS THE RIGHT PLACE IN THE STORE AND DISPATCHES THE ACTION TO ADD IT
       this.user$ = this._store.select(selectUser);
-      this._store.dispatch(UsersActions.addUser({ user: this.user }));
-
-      // CHECKS IF THE USER WAS CREATED IN THE DATABASE, WE CAN REDIRECT TO THE HOME PAGE
-      /*this.sub = this.user$.subscribe(
-        user => {
-          if(user.username !== undefined) {
-            this.router.navigate(['/app']).then(() => {});
-          }},
-      );*/
+      this._store.dispatch(UsersActions.addUser({ user: this.user }))
 
     } else {
       //THROWS AN ALERT AND ERROR IF THE USER DOESN'T ENTER ANYTHING
@@ -56,8 +47,4 @@ export class LoginComponent {
       throw new Error('Please enter an user name');
     }
   }
-
-  /*ongOnDestroy(): void {
-    this.sub.unsubscribe();
-  }*/
 }

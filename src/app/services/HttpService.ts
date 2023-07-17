@@ -54,10 +54,5 @@ class HttpService {
       throw (error);
     }
   }
-
-  /*deleteBeer(id: number): void {
-    this._http.delete(URLBEERS + "/" + id).subscribe();
-  }*/
-
 }
 export default HttpService
