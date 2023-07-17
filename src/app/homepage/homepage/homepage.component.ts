@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {filter, Observable, skipUntil, takeUntil} from "rxjs";
+import {filter, Observable, skipUntil, Subscription, takeUntil} from "rxjs";
 import User from "../../models/userModel";
 import {Store} from "@ngrx/store";
 import {selectUser} from "../../store/users/users.selectors";
@@ -13,6 +13,7 @@ import {Router} from "@angular/router";
 })
 export class HomepageComponent {
   public user$!: Observable<User>;
+  private sub:Subscription;
   constructor(
     private readonly _store: Store, private readonly router : Router
   ) { }
@@ -22,7 +23,7 @@ export class HomepageComponent {
     this.user$ = this._store.select(selectUser);
 
 
-    this.user$.subscribe(
+    this.sub = this.user$.subscribe(
       user => {console.log(user.username);
         if(user.username === undefined) this.router.navigate(['/home']
       )},
@@ -36,8 +37,6 @@ export class HomepageComponent {
   }
 
   onDestroy() {
-/*
-    this.user$.unsubscribe();
-*/
+    this.sub.unsubscribe()
   }
 }
