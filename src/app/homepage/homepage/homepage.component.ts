@@ -24,9 +24,8 @@ export class HomepageComponent {
 
 
     this.sub = this.user$.subscribe(
-      user => {console.log(user.username);
-        if(user.username === undefined) this.router.navigate(['/home']
-      )},
+      user => {
+        if(user.username === undefined) this.router.navigate(['/home']).then();},
     )
 
    /* this.user$.pipe(

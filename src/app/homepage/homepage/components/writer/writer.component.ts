@@ -15,9 +15,14 @@ export class WriterComponent {
   ROOM_ID = '64ae8f8a815a71f5772d0d41';
   constructor(private readonly _store: Store) { }
 
+  // LINKING THE INPUT FIELD TO THE FORM CONTROL VARIABLE
   messageToSend: FormControl<string | null> = new FormControl('');
+
   msg: Message = new Message('', '', '', 0, '');
 
+  /**
+   * SENDS A MESSAGE TO THE SERVER
+   */
   public sendMessage(): void {
     if (this.messageToSend.value !== null) {
       this.msg.roomId = this.ROOM_ID;

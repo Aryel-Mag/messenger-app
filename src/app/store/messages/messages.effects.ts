@@ -23,6 +23,7 @@ export class MessageEffects {
     )
   );*/
 
+  //CONNECTS TO THE DATABASE AND LAUNCHES AN ACTION ACCORDING TO THE RESPONSE
   addMessage = createEffect(() =>
     this.actions$.pipe(
       ofType(MessageActions.addMessage),

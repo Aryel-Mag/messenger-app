@@ -44,16 +44,16 @@ export class LoginComponent {
 
       // CHECKS IF THE USER WAS CREATED IN THE DATABASE, WE CAN REDIRECT TO THE HOME PAGE
       this.sub = this.user$.subscribe(
-        user => {console.log(user.username);
-          if(user.username !== undefined) this.goHome();},
+        user => {
+          if(user.username !== undefined) {
+            this.router.navigate(['/app']).then(() => {});
+          }},
       );
 
     } else {
-      console.error('Please enter an username');
+      //THROWS AN ALERT AND ERROR IF THE USER DOESN'T ENTER ANYTHING
+      alert('Please enter an user name');
+      throw new Error('Please enter an user name');
     }
-  }
-
-  goHome() {
-    this.router.navigate(['/app']).then(() => {});
   }
 }

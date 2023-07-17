@@ -23,6 +23,7 @@ export class UsersEffects {
     )
   );*/
 
+  //CONNECTS TO THE DATABASE AND LAUNCHES AN ACTION ACCORDING TO THE RESPONSE
   addUser = createEffect(() =>
     this.actions$.pipe(
       ofType(UsersActions.addUser),

@@ -6,7 +6,7 @@
         alt="userAvatar">
     </div>
     <div *ngIf="user$ | async as userPayload" >
-      <span>{{userPayload}}</span>
+      <span>{{userPayload.username}}</span>
     </div>
   </div>
 </body>
