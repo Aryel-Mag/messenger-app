@@ -1,13 +1,16 @@
 import User from "./userModel";
 import Message from "./messageModel";
 
-export default class roomModel {
+export default class Room {
   private _id: string;
-  private _title: string;
-  private _users: User[];
+  private _name: string;
+  private _avatar: string;
+  private _admins: User[];
+  private _guests: User[];
   private _messages: Message[];
+  private _ts: number;
 
-  get accessId(): string {
+  get id(): string {
     return this._id;
   }
 
@@ -15,23 +18,39 @@ export default class roomModel {
     this._id = value;
   }
 
-  get accessTitle(): string {
-    return this._title;
+  get name(): string {
+    return this._name;
   }
 
-  set title(value: string) {
-    this._title = value;
+  set name(value: string) {
+    this._name = value;
   }
 
-  get accessUsers(): User[] {
-    return this._users;
+  get avatar(): string {
+    return this._avatar;
   }
 
-  set users(value: User[]) {
-    this._users = value;
+  set avatar(value: string) {
+    this._avatar = value;
   }
 
-  get accessMessages(): Message[] {
+  get admins(): User[] {
+    return this._admins;
+  }
+
+  set admins(value: User[]) {
+    this._admins = value;
+  }
+
+  get guests(): User[] {
+    return this._guests;
+  }
+
+  set guests(value: User[]) {
+    this._guests = value;
+  }
+
+  get messages(): Message[] {
     return this._messages;
   }
 
@@ -39,10 +58,23 @@ export default class roomModel {
     this._messages = value;
   }
 
-  constructor(id: string, title: string, users: User[], messages: Message[]) {
-    this._id = id;
-    this._title = title;
-    this._users = users;
-    this._messages = messages;
+  get ts(): number {
+    return this._ts;
   }
+
+  set ts(value: number) {
+    this._ts = value;
+  }
+
+  constructor(id: string, name: string, avatar: string, admins: User[], guests: User[], messages: Message[], ts: number) {
+    this._id = id;
+    this._name = name;
+    this._avatar = avatar;
+    this._admins = admins;
+    this._guests = guests;
+    this._messages = messages;
+    this._ts = ts;
+  }
+
+
 }

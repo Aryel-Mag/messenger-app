@@ -1,10 +1,12 @@
 import User from "../models/userModel";
 import Message from "../models/messageModel";
+import Room from "../models/roomModel";
 
 export interface AppState {
   users?: User[];
   user?: User;
-  message?: Message;
+  messages?: Message[];
+  rooms?: Room[];
 }
 
 export enum payloadStatus {
