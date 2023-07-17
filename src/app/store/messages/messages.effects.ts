@@ -23,6 +23,7 @@ export class MessageEffects {
     )
   );*/
 
+  //CONNECTS TO THE DATABASE AND LAUNCHES AN ACTION ACCORDING TO THE RESPONSE
   addMessage = createEffect(() =>
     this.actions$.pipe(
       ofType(MessageActions.addMessage),
@@ -31,7 +32,7 @@ export class MessageEffects {
           map((message) => MessageActions.addMessageSuccess({  message, pStatus: payloadStatus.success })),
           catchError(
             () => of(MessageActions.addMessageError({
-              pStatus: payloadStatus.error, error: 'An error occurred while loading the beer list'
+              pStatus: payloadStatus.error, error: 'An error occurred while adding the messages '
             }))))
       })
     )

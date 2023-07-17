@@ -3,6 +3,7 @@ import Message from "../../../../models/messageModel";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {selectSentMessage} from "../../../../store/messages/messages.selectors";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-chat-main',
@@ -17,9 +18,7 @@ export class ChatMainComponent {
   ) { }
 
   ngOnInit() {
-
-    this.allMessages$ = this._store.select(selectSentMessage);
-
+    this.allMessages$ = this._store.select(selectSentMessage)
     // this.list$ = this._beerList.getBeersAPI();
   }
 }

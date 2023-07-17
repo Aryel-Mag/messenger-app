@@ -15,6 +15,9 @@ import { messagesReducers } from "./store/messages/messages.reducers";
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {MessageEffects} from "./store/messages/messages.effects";
+import {UsersActions} from "./store/users/users.actions";
+import {userReducers} from "./store/users/users.reducers";
+import {UsersEffects} from "./store/users/users.effects";
 
 @NgModule({
   declarations: [
@@ -28,8 +31,8 @@ import {MessageEffects} from "./store/messages/messages.effects";
     HomepageModule,
     NotFoundModule,
     HttpClientModule,
-    StoreModule.forRoot({ message: messagesReducers }),
-    EffectsModule.forRoot([MessageEffects]),
+    StoreModule.forRoot({ message: messagesReducers, user: userReducers }),
+    EffectsModule.forRoot([MessageEffects, UsersEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
   ],
   providers: [],

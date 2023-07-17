@@ -4,11 +4,17 @@
     <mat-icon>person</mat-icon>
     <mat-form-field class="example-full-width">
       <mat-label>Enter your username</mat-label>
-      <input matInput placeholder="anything you'd like" value="" [formControl]="usernameControl">
+      <input matInput placeholder="anything you'd like" value="" [formControl]="usernameControl" [errorStateMatcher]="matcher">
+      <mat-hint>You must enter an username!</mat-hint>
+      <!-- doesn't work, why? -->
+      <mat-error *ngIf="usernameControl.hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <div class="go-btn">
-    <button mat-stroked-button>G O !</button>
+    <button mat-stroked-button (click)="logUser()">G O !</button>
     </div>
   </form>
   </div>
 </body>
+

@@ -1,46 +1,27 @@
 export default class User {
-  protected _id: number = 0;
-  private _username: string = "";
-  private _image: string = "";
-  private _phoneNumber: string = "";
+  private _id: string;
+  private _username: string;
 
   // create getters and setters for id, username, image, and phoneNumber
-  public set id(id: number) {
+
+  constructor(id: string, username: string) {
     this._id = id;
+    this._username = username;
   }
 
-  public get accessId(): number {
+  get id(): string {
     return this._id;
   }
 
-  public get accessUsername(): string {
+  set id(value: string) {
+    this._id = value;
+  }
+
+  get username(): string {
     return this._username;
   }
 
-  public set username(value: string) {
+  set username(value: string) {
     this._username = value;
-  }
-
-  get accessImage(): string {
-    return this._image;
-  }
-
-  public set image(value: string) {
-    this._image = value;
-  }
-
-  public get accessPhoneNumber(): string {
-    return this._phoneNumber;
-  }
-
-  public set phoneNumber(value: string) {
-    this._phoneNumber = value;
-  }
-
-  constructor(id: number, username: string, image: string, phoneNumber: string) {
-    this.id = id;
-    this.username = username;
-    this.image = image;
-    this.phoneNumber = phoneNumber;
   }
 }
