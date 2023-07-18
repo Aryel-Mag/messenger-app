@@ -2,8 +2,12 @@ import {Component, Injectable} from '@angular/core';
 
 import {FormControl} from '@angular/forms';
 import Message from "../../../../models/messageModel";
-import {Store} from "@ngrx/store";
+import {select, Store} from "@ngrx/store";
 import {MessageActions} from "../../../../store/messages/messages.actions";
+import {Observable, Subscription} from "rxjs";
+import User from "../../../../models/userModel";
+import {selectUser} from "../../../../store/users/users.selectors";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-writer',
@@ -13,6 +17,12 @@ import {MessageActions} from "../../../../store/messages/messages.actions";
 
 export class WriterComponent {
   ROOM_ID = '64b14414a489ebe30eeb649f';
+
+  public user$!: Observable<User>;
+  sub: Subscription = new Subscription();
+
+  user: User = new User('', '');
+
   constructor(private readonly _store: Store) { }
 
   // LINKING THE INPUT FIELD TO THE FORM CONTROL VARIABLE
@@ -20,6 +30,11 @@ export class WriterComponent {
 
   msg: Message = new Message('', '', '', 0, '');
 
+  ngOnInit(): void {
+    this.user$ = this._store.select(selectUser);
+
+    this.sub = this.user$.subscribe(user => this.user = user);
+  }
   /**
    * SENDS A MESSAGE TO THE SERVER
    */
@@ -27,9 +42,15 @@ export class WriterComponent {
     if (this.messageToSend.value !== null) {
       this.msg.roomId = this.ROOM_ID;
       this.msg.message = this.messageToSend.value;
-      this.msg.sender = 'Ariel Magnetic';
+      this.msg.sender = this.user.username;
       this._store.dispatch(MessageActions.addMessage({ message: this.msg }));
       this.messageToSend.setValue('')
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+    this.sub.unsubscribe();
     }
   }
 }

@@ -8,7 +8,6 @@ import Message from "../../../../models/messageModel";
   styleUrls: ['./room.component.scss']
 })
 export class RoomComponent {
-  @Input() userImg: string = ''; // decorate the property with @Input()
   @Input() username!: string; // decorate the property with @Input()
   @Input() lastMessage!: string; // decorate the property with @Input()
 }
