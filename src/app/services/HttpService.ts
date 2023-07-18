@@ -1,21 +1,26 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import {Observable, of, Subscription} from "rxjs";
 import { map, tap } from 'rxjs/operators';
 import Message from "../models/messageModel";
 import User from "../models/userModel";
+import Room from "../models/roomModel";
+import {Store} from "@ngrx/store";
+import {selectUser} from "../store/users/users.selectors";
 
 
 const URL_MESSAGES = "http://localhost:3001/messages/";
 const URL_USERS = "http://localhost:3001/users/";
+const URL_ROOMS = "http://localhost:3001/rooms/all/";
 
 @Injectable({
   providedIn: 'root'
 })
 
 class HttpService {
+  public user$!: Observable<User>;
 
-  constructor(private readonly _http: HttpClient) { }
+  constructor(private readonly _http: HttpClient, private readonly _store: Store) { }
 
   public postMessage(message: Message): Observable<Message> {
     try {
@@ -34,6 +39,21 @@ class HttpService {
     } catch (error) {
       console.error(error);
       throw (error);
+    }
+  }
+
+  public getRooms(username: string): Observable<Room[]> {
+    //let user$!: Observable<User>;
+    //let username: string = ''
+    try {
+
+      const rooms: Observable<Room[]> = this._http.get(URL_ROOMS + username).pipe(
+        map((rooms: Object) => rooms as Room[]),
+      )
+      return rooms
+    } catch (error) {
+      console.error(error);
+      throw (error)
     }
   }
 

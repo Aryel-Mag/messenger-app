@@ -1,10 +1,15 @@
 <body>
   <div class="chat-list">
-    <!--<mat-selection-list hideSingleSelectionIndicator [multiple]="false">
-      <mat-list-option *ngFor="let user of userList">
+    <mat-selection-list hideSingleSelectionIndicator [multiple]="false"
+                        *ngIf="allRooms$ | async as rooms"
+    >
+      <mat-list-option *ngFor="let room of rooms">
         <mat-divider></mat-divider>
-        <app-room [username]="user.accessUsername" [userImg]="user.accessImage"></app-room>
+        <app-room
+          [username]="room.name"
+          [userImg]="room.avatar" [lastMessage]="room.messages[room.messages.length - 1].message">
+        </app-room>
       </mat-list-option>
-    </mat-selection-list>-->
+    </mat-selection-list>
   </div>
 </body>

@@ -4,6 +4,8 @@ import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {selectSentMessage} from "../../../../store/messages/messages.selectors";
 import {tap} from "rxjs/operators";
+import Room from "../../../../models/roomModel";
+import {selectAllRooms} from "../../../../store/rooms/rooms.selectors";
 
 @Component({
   selector: 'app-chat-main',
@@ -12,13 +14,16 @@ import {tap} from "rxjs/operators";
 })
 export class ChatMainComponent {
   public allMessages$!: Observable<Message[]>;
-
+  public allRooms$!: Observable<Room[]>;
   constructor(
     private readonly _store: Store
   ) { }
 
   ngOnInit() {
     this.allMessages$ = this._store.select(selectSentMessage)
-    // this.list$ = this._beerList.getBeersAPI();
+
+    this.allRooms$ = this._store.select(selectAllRooms)
+
+
   }
 }

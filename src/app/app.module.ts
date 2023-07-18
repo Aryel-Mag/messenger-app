@@ -18,6 +18,8 @@ import {MessageEffects} from "./store/messages/messages.effects";
 import {UsersActions} from "./store/users/users.actions";
 import {userReducers} from "./store/users/users.reducers";
 import {UsersEffects} from "./store/users/users.effects";
+import {roomsReducers} from "./store/rooms/rooms.reducers";
+import {RoomsEffects} from "./store/rooms/rooms.effects";
 
 @NgModule({
   declarations: [
@@ -31,8 +33,8 @@ import {UsersEffects} from "./store/users/users.effects";
     HomepageModule,
     NotFoundModule,
     HttpClientModule,
-    StoreModule.forRoot({ message: messagesReducers, user: userReducers }),
-    EffectsModule.forRoot([MessageEffects, UsersEffects]),
+    StoreModule.forRoot({ rooms: roomsReducers, messages: messagesReducers, user: userReducers }),
+    EffectsModule.forRoot([MessageEffects, UsersEffects, RoomsEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
   ],
   providers: [],

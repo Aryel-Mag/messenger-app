@@ -2,10 +2,10 @@ import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/s
 import { IPayloadStatus } from '../interfaces';
 
 // CREATES A LINK TO APP STATE IN THE STORE
-export const selectMessageState: MemoizedSelector<any, IPayloadStatus> = createFeatureSelector<IPayloadStatus>('messages');
+export const selectRoomsState: MemoizedSelector<any, IPayloadStatus> = createFeatureSelector<IPayloadStatus>('rooms');
 
 // CREATES A LINK TO THE MESSAGE STATE IN THE STORE
-export const selectSentMessage = createSelector(
-  selectMessageState,
+export const selectAllRooms = createSelector(
+  selectRoomsState,
   ({ data }: IPayloadStatus) => data ? data : []
 );

@@ -12,7 +12,7 @@ import {MessageActions} from "../../../../store/messages/messages.actions";
 })
 
 export class WriterComponent {
-  ROOM_ID = '64ae8f8a815a71f5772d0d41';
+  ROOM_ID = '64b14414a489ebe30eeb649f';
   constructor(private readonly _store: Store) { }
 
   // LINKING THE INPUT FIELD TO THE FORM CONTROL VARIABLE
