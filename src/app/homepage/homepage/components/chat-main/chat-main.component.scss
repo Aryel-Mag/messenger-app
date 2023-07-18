@@ -4,3 +4,22 @@ body{
   height: calc(100vh - 170px);
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.message-box {
+  place-items: center;
+  text-align: center;
+  margin: 5px;
+  background-color: lightgreen;
+  width: 80%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgreen;
+  box-shadow: lightpink;
+  border-radius: 10px;
+}

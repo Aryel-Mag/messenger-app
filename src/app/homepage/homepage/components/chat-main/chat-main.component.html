@@ -1,7 +1,9 @@
 <body>
   <div *ngIf="allRooms$ | async as rooms" class="container">
     <div *ngFor="let message of rooms[0].messages" class="message-box">
-      <p>{{message.sender}}: {{message.message}}                  at: {{message.timestamp}}</p>
+      <span>{{message.sender}}: </span> <br>
+      <p>{{message.message}}</p>
+      <span>{{message.timestamp}}</span>
     </div>
   </div>
 </body>
