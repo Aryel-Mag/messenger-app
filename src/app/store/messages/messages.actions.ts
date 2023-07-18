@@ -6,10 +6,6 @@ import {payloadStatus} from "../interfaces";
 export const MessageActions= createActionGroup({
   source: 'Messages',
   events: {
-    getMessages: emptyProps(),
-    getMessagesSuccess: props<{ messages: Message[]; pStatus: payloadStatus }>(),
-    getMessagesError: props<{ pStatus: payloadStatus; error: string }>(),
-
     addMessage: props<{ message: Message }>(),
     addMessageSuccess: props<{ message: Message; pStatus: payloadStatus }>(),
     addMessageError: props<{ pStatus: payloadStatus; error: string }>(),

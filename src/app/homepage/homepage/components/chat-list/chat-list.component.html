@@ -2,8 +2,9 @@
   <div class="chat-list">
     <mat-selection-list hideSingleSelectionIndicator [multiple]="false"
                         *ngIf="allRooms$ | async as rooms"
+                        value="First Conversation"
     >
-      <mat-list-option *ngFor="let room of rooms">
+      <mat-list-option *ngFor="let room of rooms" value="{{room.name}}">
         <mat-divider></mat-divider>
         <app-room
           [username]="room.name"

@@ -20,6 +20,14 @@ import {userReducers} from "./store/users/users.reducers";
 import {UsersEffects} from "./store/users/users.effects";
 import {roomsReducers} from "./store/rooms/rooms.reducers";
 import {RoomsEffects} from "./store/rooms/rooms.effects";
+import { SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+
+const config: SocketIoConfig = {
+  url: 'http://localhost:3000', // socket server url;
+  options: {
+    transports: ['websocket']
+  }
+}
 
 @NgModule({
   declarations: [
@@ -36,6 +44,7 @@ import {RoomsEffects} from "./store/rooms/rooms.effects";
     StoreModule.forRoot({ rooms: roomsReducers, messages: messagesReducers, user: userReducers }),
     EffectsModule.forRoot([MessageEffects, UsersEffects, RoomsEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
   bootstrap: [AppComponent]
