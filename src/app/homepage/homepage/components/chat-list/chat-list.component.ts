@@ -17,9 +17,7 @@ export class ChatListComponent {
   }
 
   ngOnInit(): void {
-    this.allRooms$ = this._store.select(selectAllRooms).pipe(
-      tap(rooms => console.log('rooms: ', rooms))
-    )
+    this.allRooms$ = this._store.select(selectAllRooms)
   }
 
 }

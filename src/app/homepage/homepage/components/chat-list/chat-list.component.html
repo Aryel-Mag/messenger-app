@@ -5,7 +5,10 @@
     >
       <mat-list-option *ngFor="let room of rooms">
         <mat-divider></mat-divider>
-        <app-room [username]="room.name" [userImg]="room.avatar"></app-room>
+        <app-room
+          [username]="room.name"
+          [userImg]="room.avatar" [lastMessage]="room.messages[room.messages.length - 1].message">
+        </app-room>
       </mat-list-option>
     </mat-selection-list>
   </div>

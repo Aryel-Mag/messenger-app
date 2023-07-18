@@ -39,6 +39,8 @@ export class HomepageComponent {
   }
 
   onDestroy() {
-    this.sub.unsubscribe()
+    if(this.sub){
+      this.sub.unsubscribe();
+    }
   }
 }

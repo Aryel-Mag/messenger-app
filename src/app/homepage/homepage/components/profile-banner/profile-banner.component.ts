@@ -26,6 +26,4 @@ export class ProfileBannerComponent {
     this.user$ = this._store.select(selectUser)
 
   }
-
-
 }
