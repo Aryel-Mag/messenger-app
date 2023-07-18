@@ -1,7 +1,10 @@
 <body>
+  <mat-divider></mat-divider>
   <div class="user-chat">
-    <img class="avatar" [src]="userImg" alt="avtr">
-    <span>{{username}}</span>
+    <h3>{{username}}</h3>
   </div>
-  <p class="last-message">{{lastMessage}}</p>
+  <div class="user-chat">
+    <span class="last-message">Last message: {{lastMessage}}</span>
+  </div>
+  <mat-divider></mat-divider>
 </body>

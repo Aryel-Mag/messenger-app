@@ -1,7 +1,6 @@
 <body>
   <div  class="banner" *ngIf="allRooms$ | async as rooms">
   <div *ngIf="rooms">
-    <img [src]="rooms[0].avatar" alt="chat-avatar">
     <h3>{{rooms[0].name}}</h3>
   </div>
   </div>
