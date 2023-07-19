@@ -1,6 +1,6 @@
 <body>
   <div  class="banner" *ngIf="allRooms$ | async as rooms">
-  <div *ngIf="rooms">
+  <div *ngIf="rooms.length > 0">
     <h3>{{rooms[0].name}}</h3>
   </div>
   </div>

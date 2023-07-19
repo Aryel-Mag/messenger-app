@@ -7,6 +7,7 @@ import User from "../models/userModel";
 import Room from "../models/roomModel";
 import {Store} from "@ngrx/store";
 import {selectUser} from "../store/users/users.selectors";
+import {switchMap} from "rxjs";
 
 
 const URL_MESSAGES = "http://localhost:3001/messages/";
@@ -45,11 +46,16 @@ class HttpService {
   public getRooms(username: string): Observable<Room[]> {
     //let user$!: Observable<User>;
     //let username: string = ''
+    let rooms:Observable<Room[]>;
     try {
+      rooms = this._store.select(selectUser).pipe(
+        switchMap( user => {
+          return this._http.get(URL_ROOMS + user.username).pipe(
+            map((roomsObj: Object) => roomsObj as Room[])
+          )
+        })
+      );
 
-      const rooms: Observable<Room[]> = this._http.get(URL_ROOMS + username).pipe(
-        map((rooms: Object) => rooms as Room[]),
-      )
       return rooms
     } catch (error) {
       console.error(error);
