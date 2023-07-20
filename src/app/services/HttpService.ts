@@ -46,16 +46,11 @@ class HttpService {
   public getRooms(username: string): Observable<Room[]> {
     //let user$!: Observable<User>;
     //let username: string = ''
-    let rooms:Observable<Room[]>;
     try {
-      rooms = this._store.select(selectUser).pipe(
-        switchMap( user => {
-          return this._http.get(URL_ROOMS + user.username).pipe(
-            map((roomsObj: Object) => roomsObj as Room[])
-          )
-        })
-      );
-
+      // GET ROOMS FROM DATABASE ACCORDING TO THE USERNAME
+      const rooms: Observable<Room[]> = this._http.get(URL_ROOMS + username).pipe(
+        map((rooms: Object) => rooms as Room[]),
+      )
       return rooms
     } catch (error) {
       console.error(error);

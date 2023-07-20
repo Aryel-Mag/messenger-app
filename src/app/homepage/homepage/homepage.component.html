@@ -1,21 +1,19 @@
-<body>
-  <div class="container">
-    <div class="chat-list">
-      <div>
-        <app-profile-banner></app-profile-banner>
-        <app-chat-list></app-chat-list>
-        <mat-divider></mat-divider>
-      </div>
-    </div>
-    <div class="messages">
-      <app-chat-banner></app-chat-banner>
-      <div class="chat-area">
-        <app-chat-main></app-chat-main>
-      </div>
-      <div class="text-area">
-        <mat-divider></mat-divider>
-        <app-writer></app-writer>
-      </div>
+<div class="container" *ngIf="allRooms$ | async">
+  <div class="chat-list">
+    <div>
+      <app-profile-banner></app-profile-banner>
+      <app-chat-list></app-chat-list>
+      <mat-divider></mat-divider>
     </div>
   </div>
-</body>
+  <div class="messages">
+    <app-chat-banner></app-chat-banner>
+    <div class="chat-area">
+      <app-chat-main></app-chat-main>
+    </div>
+    <div class="text-area">
+      <mat-divider></mat-divider>
+      <app-writer></app-writer>
+    </div>
+  </div>
+</div>
