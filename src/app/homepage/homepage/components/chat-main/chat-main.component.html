@@ -1,17 +1,21 @@
-<body>
+<div class="container-body">
  <div>
     <div class="msgs-list" id="chat-container">
       <div *ngIf="room$ | async as room" class="container">
         <div *ngIf="room.messages.length > 0" #scrollFrame>
-          <div *ngFor="let message of room.messages; let i = index" id="{{i}}" class="message-box">
+          <div *ngFor="let message of room.messages" class="message-box">
             <div  class="message">
-            <span>{{message.sender}}: {{i}}</span> <br>
-            <p>{{message.message}}</p>
-            <span>{{message.timestamp}}</span>
+              <div class="sender">
+                <span>{{message.sender}}:</span> <br>
+              </div>
+              <p>{{message.message}}</p>
+              <div class="date">
+                <span class="date-text">{{message.ts | date:'short'}}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
  </div>
-</body>
+</div>

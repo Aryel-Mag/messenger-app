@@ -23,12 +23,12 @@ export default class Message {
     this._message = value;
   }
 
-  get timestamp(): number {
-    return this._timestamp;
+  get ts(): number {
+    return this._ts;
   }
 
-  set timestamp(value: number) {
-    this._timestamp = value;
+  set ts(value: number) {
+    this._ts = value;
   }
 
   get sender(): string {
@@ -41,16 +41,16 @@ export default class Message {
   private _id: string;
   private _roomId: string;
   private _message: string;
-  private _timestamp: number;
+  private _ts: number;
   private _sender: string;
 
   // getters and setters for id, message, timestamp, and senders
 
-  constructor(id: string, roomId:string, message: string, timestamp: number, sender: string) {
+  constructor(id: string, roomId:string, message: string, ts: number, sender: string) {
     this._id = id;
     this._roomId = roomId
     this._message = message;
-    this._timestamp = timestamp;
+    this._ts = ts;
     this._sender = sender;
   }
 }
