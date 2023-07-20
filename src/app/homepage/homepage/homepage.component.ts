@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {filter, Observable, skipUntil, Subscription, takeUntil} from "rxjs";
+import {filter, Observable, skipUntil, Subscription, switchMap, takeUntil} from "rxjs";
 import User from "../../models/userModel";
 import {Store} from "@ngrx/store";
 import {selectUser} from "../../store/users/users.selectors";
@@ -7,6 +7,8 @@ import {Router} from "@angular/router";
 import {RoomsActions} from "../../store/rooms/rooms.actions";
 import {selectAllRooms} from "../../store/rooms/rooms.selectors";
 import Room from "../../models/roomModel";
+import {map} from "rxjs/operators";
+import Message from "../../models/messageModel";
 
 
 @Component({
@@ -15,23 +17,37 @@ import Room from "../../models/roomModel";
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent {
+  public allRooms$!: Observable<Room[]>;
   public user$!: Observable<User>;
-  private sub!:Subscription;
+
+  private sub1!:Subscription;
   constructor(
     private readonly _store: Store, private readonly router : Router
   ) { }
 
   ngOnInit() {
-
     this.user$ = this._store.select(selectUser);
     // CHECKS IF USER IS LOGGED IN
-    this.sub = this.user$.subscribe(
+    this.sub1 = this.user$.subscribe(
       user => {
         if (user.username === undefined) {
           alert('You must be logged in to access this page')
           this.router.navigate(['/home']).then();
         } else {
           this._store.dispatch(RoomsActions.getRooms({username: user.username}));
+          this.allRooms$ = this._store.select(selectAllRooms)
+            .pipe(
+              map(rooms => {
+                if(rooms.length > 0) {
+                  /*
+                  const allMessages = rooms[0].messages;
+                  this._store.dispatch(RoomsActions.addMessage({message: allMessages[allMessages.length - 1]}))
+                  */
+                  this._store.dispatch(RoomsActions.selectRoom({room: rooms[0]}));
+                }
+                return rooms;
+              })
+            );
         }
       },
     )
@@ -39,8 +55,8 @@ export class HomepageComponent {
   }
 
   onDestroy() {
-    if(this.sub){
-      this.sub.unsubscribe();
+    if(this.sub1){
+      this.sub1.unsubscribe();
     }
   }
 }

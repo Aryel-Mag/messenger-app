@@ -28,23 +28,19 @@ export class WriterComponent {
   // LINKING THE INPUT FIELD TO THE FORM CONTROL VARIABLE
   messageToSend: FormControl<string | null> = new FormControl('');
 
-  msg: Message = new Message('', '', '', 0, '');
-
   ngOnInit(): void {
     this.user$ = this._store.select(selectUser);
-
     this.sub = this.user$.subscribe(user => this.user = user);
   }
+
   /**
    * SENDS A MESSAGE TO THE SERVER
    */
   public sendMessage(): void {
     if (this.messageToSend.value !== null) {
-      this.msg.roomId = this.ROOM_ID;
-      this.msg.message = this.messageToSend.value;
-      this.msg.sender = this.user.username;
-      this._store.dispatch(MessageActions.addMessage({ message: this.msg }));
-      this.messageToSend.setValue('')
+      let message: Message = new Message('', this.ROOM_ID, this.messageToSend.value, 0, this.user.username);
+      this._store.dispatch(MessageActions.addMessage({ message: message }));
+      this.messageToSend.setValue('');
     }
   }
 

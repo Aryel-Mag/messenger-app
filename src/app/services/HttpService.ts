@@ -7,6 +7,7 @@ import User from "../models/userModel";
 import Room from "../models/roomModel";
 import {Store} from "@ngrx/store";
 import {selectUser} from "../store/users/users.selectors";
+import {switchMap} from "rxjs";
 
 
 const URL_MESSAGES = "http://localhost:3001/messages/";
@@ -46,7 +47,7 @@ class HttpService {
     //let user$!: Observable<User>;
     //let username: string = ''
     try {
-
+      // GET ROOMS FROM DATABASE ACCORDING TO THE USERNAME
       const rooms: Observable<Room[]> = this._http.get(URL_ROOMS + username).pipe(
         map((rooms: Object) => rooms as Room[]),
       )
