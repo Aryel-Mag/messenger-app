@@ -14,7 +14,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {MessageEffects} from "./store/messages/messages.effects";
-import {UsersActions} from "./store/users/users.actions";
 import {userReducers} from "./store/users/users.reducers";
 import {UsersEffects} from "./store/users/users.effects";
 import {roomReducers, roomsReducers} from "./store/rooms/rooms.reducers";

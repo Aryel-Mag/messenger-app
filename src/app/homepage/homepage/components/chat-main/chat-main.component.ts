@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import Message from "../../../../models/messageModel";
 import {Observable, Subject, Subscription, switchMap} from "rxjs";
 import {Store} from "@ngrx/store";
 import Room from "../../../../models/roomModel";

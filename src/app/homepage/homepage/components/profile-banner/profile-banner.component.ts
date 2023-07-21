@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import {Store} from "@ngrx/store";
 import User from "../../../../models/userModel";
-import {selectSentMessage} from "../../../../store/messages/messages.selectors";
 import {selectUser} from "../../../../store/users/users.selectors";
 import {Observable, Subscription} from "rxjs";
-import Message from "../../../../models/messageModel";
-import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-profile-banner',

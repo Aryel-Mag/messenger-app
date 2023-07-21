@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import User from 'src/app/models/userModel';
-import Message from "../../../../models/messageModel";
 
 @Component({
   selector: 'app-room',
