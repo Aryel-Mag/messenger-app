@@ -4,7 +4,6 @@ import {selectAllRooms} from "../../../../store/rooms/rooms.selectors";
 import {Observable} from "rxjs";
 import Room from "../../../../models/roomModel";
 import {Store} from "@ngrx/store";
-import {tap} from "rxjs/operators";
 @Component({
   selector: 'app-chat-list',
   templateUrl: './chat-list.component.html',

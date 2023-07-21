@@ -2,13 +2,14 @@ body{
   display: flex;
   place-items: center;
   justify-content: center;
+  background-image: radial-gradient(circle, #1e2761 0%, #7a2048 100%);
 }
 
 .container{
   display: flex;
   place-items: center;
   justify-content: center;
-  background-color: lightpink;
+  background-color: #408ec6;
   width: 40vh;
   height: 35vh;
   border-radius: 10px;

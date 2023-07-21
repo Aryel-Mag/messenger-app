@@ -6,8 +6,6 @@ import Message from "../models/messageModel";
 import User from "../models/userModel";
 import Room from "../models/roomModel";
 import {Store} from "@ngrx/store";
-import {selectUser} from "../store/users/users.selectors";
-import {switchMap} from "rxjs";
 
 
 const URL_MESSAGES = "http://localhost:3001/messages/";
