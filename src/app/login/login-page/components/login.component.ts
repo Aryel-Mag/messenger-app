@@ -68,9 +68,6 @@ export class LoginComponent {
   }
 
   ngOnDestroy(): void {
-    if(this.sub1) {
-      this.sub1.unsubscribe();
-    }
-
+    if(this.sub1) this.sub1.unsubscribe();
   }
 }
