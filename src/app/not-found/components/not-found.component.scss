@@ -1,16 +1,27 @@
-body{
-  color: black;
-  display: block;
+.container-body{
+  color: white;
+  display: flex;
+  flex-direction: column;
   place-items: center;
   justify-content: center;
   margin: 100px;
 }
 
+button{
+  width: 100px;
+  height: 60px;
+  font-size: 30px;
+}
+
 h2{
-  color: black;
+  color: white;
 }
 
 img{
   width: 50%;
-  margin: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 10px solid transparent ;
+  border-color: #fff;
+  border-radius: 10px
 }

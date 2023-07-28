@@ -38,13 +38,7 @@ export class HomepageComponent {
           this.allRooms$ = this._store.select(selectAllRooms)
             .pipe(
               map(rooms => {
-                if(rooms.length > 0) {
-                  /*
-                  const allMessages = rooms[0].messages;
-                  this._store.dispatch(RoomsActions.addMessage({message: allMessages[allMessages.length - 1]}))
-                  */
-                  this._store.dispatch(RoomsActions.selectRoom({room: rooms[0]}));
-                }
+                if(rooms.length > 0) this._store.dispatch(RoomsActions.selectRoom({room: rooms[0]}));
                 return rooms;
               })
             );
@@ -55,8 +49,6 @@ export class HomepageComponent {
   }
 
   onDestroy() {
-    if(this.sub1){
-      this.sub1.unsubscribe();
-    }
+    if(this.sub1) this.sub1.unsubscribe();
   }
 }

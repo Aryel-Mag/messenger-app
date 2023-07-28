@@ -51,9 +51,7 @@ export class ChatMainComponent implements AfterViewInit {
   }
 
   private onMessageElementChange(): void {
-    if (this.isNearBottom) {
-      this.scrollToBottom();
-    }
+    if (this.isNearBottom) this.scrollToBottom()
   }
 
   private scrollToBottom(): void {
@@ -76,11 +74,7 @@ export class ChatMainComponent implements AfterViewInit {
   }
 
   ngOnDestroy() {
-    if(this.sub1) {
-      this.sub1.unsubscribe();
-    }
-    if(this.sub3) {
-      this.sub3.unsubscribe();
-    }
+    if(this.sub1) this.sub1.unsubscribe();
+    if(this.sub3) this.sub3.unsubscribe();
   }
 }

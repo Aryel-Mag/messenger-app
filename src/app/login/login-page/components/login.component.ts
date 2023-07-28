@@ -9,6 +9,9 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from "@angular/router";
 import {Observable, Subscription} from "rxjs";
 import {selectUser} from "../../../store/users/users.selectors";
+import {RoomsActions} from "../../../store/rooms/rooms.actions";
+import {selectAllRooms} from "../../../store/rooms/rooms.selectors";
+import {map} from "rxjs/operators";
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -25,6 +28,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent {
   public user$!: Observable<User>;
+
+  private sub1!:Subscription;
+
   constructor(private readonly _store: Store, private router: Router) { }
 
   usernameControl: FormControl<string|null> = new FormControl('');
@@ -32,6 +38,19 @@ export class LoginComponent {
   matcher = new MyErrorStateMatcher();
 
   user: User = new User('', '');
+
+  ngOnInit() {
+    this.user$ = this._store.select(selectUser);
+
+    this.sub1 = this.user$.subscribe(
+      user => {
+        if (user.username !== undefined) {
+          this.router.navigate(['/app']).then();
+          console.log(user.username);
+        }
+      },
+    )
+  }
 
   public logUser(): void {
     if (this.usernameControl.value !== null && this.usernameControl.value!== '') {
@@ -46,5 +65,9 @@ export class LoginComponent {
       alert('Please enter an user name');
       throw new Error('Please enter an user name');
     }
+  }
+
+  ngOnDestroy(): void {
+    if(this.sub1) this.sub1.unsubscribe();
   }
 }
