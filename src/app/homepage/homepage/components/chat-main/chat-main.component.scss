@@ -1,0 +1,56 @@
+.container-body{
+  margin: 0;
+  height: calc(100vh - 170px);
+  background-color: #1e2761;
+
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.msgs-list {
+  display: block;
+  position: relative;
+  bottom: 0;
+
+  max-height: calc(100vh - 330px);
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
+.message-box {
+  margin: 5px;
+  background-color: #7a2048;
+  color: #fff;
+  border-color: #408ec6;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.message{
+  margin: 10px;
+}
+
+.date{
+  display: flex;
+  justify-content: end;
+}
+
+.sender{
+  display: flex;
+  justify-content: start;
+}
+
+.date-text{
+  width: 20vh;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: black;
+  background-color: #408ec6;
+}

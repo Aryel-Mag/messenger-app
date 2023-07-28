@@ -1,0 +1,21 @@
+<div class="container-body">
+ <div>
+    <div class="msgs-list" (scroll)="scrolled($event)" #scrollframe>
+      <div *ngIf="room$ | async as room" class="container" >
+        <div *ngIf="room.messages.length > 0">
+          <div *ngFor="let message of room.messages" class="message-box" #message>
+            <div  class="message">
+              <div class="sender">
+                <span>{{message.sender}}:</span> <br>
+              </div>
+              <p>{{message.message}}</p>
+              <div class="date">
+                <span class="date-text">{{message.ts | date:'short'}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>

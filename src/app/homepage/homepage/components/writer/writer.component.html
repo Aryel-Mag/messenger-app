@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="message-input">
+    <mat-form-field class="example-full-width">
+      <mat-label>Write your messages here:</mat-label>
+      <textarea matInput placeholder="..."  [formControl]="messageToSend"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="buttons">
+    <button mat-fab aria-label="Send message" class="sendBtn" (click)="sendMessage()">
+      <mat-icon>send</mat-icon>
+    </button>
+    <button mat-fab aria-label="Send emoji" class="sendBtn">
+      <mat-icon>mood</mat-icon>
+    </button>
+  </div>
+</div>
+

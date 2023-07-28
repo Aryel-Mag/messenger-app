@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="chat-list">
+    <mat-selection-list hideSingleSelectionIndicator [multiple]="false"
+                        *ngIf="room$ | async as room"
+                        id="First Conversation"
+    >
+      <mat-list-option id="{{room.name}}">
+        <mat-divider></mat-divider>
+        <h4 *ngIf="titleSubject$ | async as title">{{title}}</h4>
+        <app-room
+          [username]="room.name"
+          [lastMessage]="room.messages[room.messages.length - 1].message">
+        </app-room>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>

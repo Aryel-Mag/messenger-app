@@ -1,0 +1,17 @@
+.container{
+  margin: 0;
+  background-color: #1e2761;
+  height: calc(100vh - 170px);
+}
+
+mat-list-option:nth-child(n){
+  height: 100px;
+  display:flex;
+}
+
+h4{
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 15px
+;
+}

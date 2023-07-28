@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+
+.container{
+  display: flex;
+  margin: 20px;
+  height: calc(100vh - 100px);
+}
+
+.chat-list{
+  display: block;
+  justify-content: center;
+  text-align: center;
+  @include mat.elevation(5);
+  width: 33%;
+  margin: 0px;
+}
+
+.messages{
+  display: block;
+  text-align: center;
+  justify-content: center;
+  place-items: center;
+  @include mat.elevation(5);
+  width: 66%;
+  margin-left: 5px;
+}
+
+.chat {
+  margin: 10px;
+  display: flex;
+  text-align: start;
+}
+
+.chat-title{
+  margin: 10px
+}
+
+.chat-area{
+  height: calc(100vh - 330px);
+}
+
+.text-area{
+  background-color: #1e2761;
+}

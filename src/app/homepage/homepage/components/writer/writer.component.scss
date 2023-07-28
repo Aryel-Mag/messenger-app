@@ -1,0 +1,36 @@
+@use '@angular/material' as mat;
+
+mat-form-field{
+  height: 13.7vh;
+  width: calc(50vh - 100px);
+  margin: 20px;
+  border-style: inset;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: #7a2048;
+  @include mat.elevation(5);
+}
+
+textarea{
+  resize: none;
+}
+
+.container{
+  display: flex;
+  background-color: #1e2761;
+}
+
+.buttons {
+  width: 12%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-input{
+  width: 80%;
+}
+
+.sendBtn {
+  background-color: #408ec6;
+  margin: 10px;
+}
